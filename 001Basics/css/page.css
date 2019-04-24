@@ -16,7 +16,7 @@ page{
 #z{
     font-size: 36px;
     display: block;
-    animation: z 8s infinite;
+    animation: z 10s infinite;
 }
 @keyframes z {
     0%{opacity: 0}
@@ -24,26 +24,27 @@ page{
     50%{opacity: 0}
     75%{opacity: 0}
     85%{opacity: 0}
-    100%{opacity: 100}
+    95%{opacity: 100}
+    100%{opacity: 00}
 }
 #c{
     background-color: lightgreen;
-    animation: c 8s infinite;
+    animation: c 10s infinite;
 }
 #x{
     background-color: red;
-    animation: x 8s infinite;
+    animation: x 10s infinite;
 }
 #q{
     background-image: url("../images/girl3.PNG");
     background-size: 100% 100%;
     background-color: gold;
-    animation: q 8s infinite;
+    animation: q 10s infinite;
 }
 #d{
     background-color: black;
     color: white;
-    animation: d 8s infinite;
+    animation: d 10s infinite;
 }
 @keyframes c {
     0%{opacity: 0}
