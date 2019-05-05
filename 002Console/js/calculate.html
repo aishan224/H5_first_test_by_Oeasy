@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function toPoint(percent){
+            var str = percent.replace("%","");
+            str = str/100;
+            return str;
+        }
+        var price = prompt("输入价格");
+        var priceOff=Number(toPoint(prompt("请输入折扣")));//%的形式
+        price = price*priceOff;
+        alert("The price now is "+price);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
