@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        function isInteger(val){     //传的参数没有类型之类的
+            return val%1 === 0;  //=== 意味着绝对等于，不论值还是类型
+        }
+
+        var price = 10,count,totalPrice;
+        count = prompt(price+"元一杯, "+"您要多少杯");  //这个输入默认是字符串型
+
+        if(!isNaN(count)){
+            if(isInteger(count)){
+                if (count%2==0) {
+                    totalPrice =count*price*0.75;
+                }
+                else {
+                    totalPrice = count*price*0.75+price/4;
+                }
+                document.write("您一共需要消费"+totalPrice+"元!");
+            }
+            else{
+                document.write("必须是整数杯");
+            }
+
+        }
+        else {
+            document.write("这根本不是数字");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
