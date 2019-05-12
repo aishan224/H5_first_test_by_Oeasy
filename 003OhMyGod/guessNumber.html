@@ -11,29 +11,55 @@
 
 </head>
 <body>
+<div id = "message"></div>
+
 <script>
     var binggo = false;
+    var str;
     function guess(){
         if(binggo){
             return;
         }
-        var guess = prompt("您猜骰子是多少?");
-        if (guess==a){
-            document.write("您猜中了!"+"<br>");
+        var guess = prompt("您猜骰子是多少?"); //得到的是带双引号的
+        if(!Number.isInteger(guess/1)||guess>6||guess<1){
+            document.getElementById("message").innerHTML="您的输入有误";
             binggo = true;
         }
-        else if(guess > a ){
-            document.write("您猜大了!"+"<br>");
-        }
         else {
-            document.write("您猜小了!"+"<br>");
+            console.info("arandom===="+arandom);
+            console.info("guess===="+guess);
+            var diff = Math.abs(guess-arandom);
+            console.info("diff===="+diff);
+
+            if (guess==arandom){
+                str="中了！"+"<br>"+"<img src=\"images/"+arandom+".png\"/>";
+                //document.write();
+                binggo = true;
+            }
+            else if(guess > arandom){
+                if(diff>1){
+                    str="太大了"+"<br>";
+                }
+                else{
+                    str="有一点点大了"+"<br>";
+                }
+            }
+            else {
+                if (diff > 1) {
+                    str = "太小了" + "<br>";
+                } else {
+                    str = "有一点点小了" + "<br>";
+                }
+            }
+            document.getElementById("message").innerHTML = str;
         }
+
     }
-    var a = Math.random();
-    a = Math.floor(a*6)+1;
-    console.log(a);
-    //document.write(a);
-    //document.write("<img src=\"images/"+a+".png\"/>");
+    var arandom = Math.random();
+    arandom = Math.floor(arandom*6)+1;
+    console.log(arandom);
+    //document.write(arandom);
+    //
     for (var i=0;i<3;i++){
         guess();
     }
