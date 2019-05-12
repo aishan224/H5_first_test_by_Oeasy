@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
     <script>
-        var arandom = Math.floor(Math.random()*4)+1;
+        function getAnswer(){
+            var arandom = Math.floor(Math.random()*4)+1;
+            var str = String.fromCharCode(arandom+64);
+            document.write(str);
+        }
+        function get5Answers(){
+            for (var i=0;i<5;i++){
+                getAnswer();
+            }
+            document.write("<br>");
+        }
+        get5Answers();
+        get5Answers();
+        get5Answers();
+        get5Answers();
     </script>
 </head>
 <body>
