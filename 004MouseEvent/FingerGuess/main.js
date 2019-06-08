@@ -1,58 +1,58 @@
-var r;
+var r,score=8;
 function rock(){
-    r = 3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>"
-    var cumputerchoice=cumputerChoice();
-    judge("rock",cumputerchoice);
+    judge("rock");
 }
 function scissors(){
-    r = 3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/scissors.png\"/>"
-    var cumputerchoice=cumputerChoice();
-    judge("scissors",cumputerchoice);
+    judge("scissors");
 }
 function paper(){
-    r = 3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/paper.png\"/>"
-    var cumputerchoice=cumputerChoice();
-    judge("paper",cumputerchoice);
+    judge("paper");
 }
 
-function judge(myVal,cumputerVal) {
+function judge(myVal) {
+    r = 3*Math.random();
+    var cumputerchoice=cumputerChoice();
     if(myVal=="rock"){
-        if(cumputerVal=="rock"){
-            document.getElementById("result").innerHTML = "Draw";
+        if(cumputerchoice=="rock"){
+            ;
         }
-        else if (cumputerVal=="scissors"){
-            document.getElementById("result").innerHTML = "Win";
+        else if (cumputerchoice=="scissors"){
+            score+=1;
         }
-        else if(cumputerVal=="paper"){
-            document.getElementById("result").innerHTML = "Lose";
+        else if(cumputerchoice=="paper"){
+            score-=1;
         }
     }
 
     else if(myVal=="scissors"){
-        if(cumputerVal=="rock"){
-            document.getElementById("result").innerHTML = "Lose";
+        if(cumputerchoice=="rock"){
+            score-=1;
         }
-        else if (cumputerVal=="scissors"){
-            document.getElementById("result").innerHTML = "Draw";
+        else if (cumputerchoice=="scissors"){
+            ;
         }
-        else if(cumputerVal=="paper"){
-            document.getElementById("result").innerHTML = "Win";
+        else if(cumputerchoice=="paper"){
+            score+=1;
         }
     }
 
     else{
-        if(cumputerVal=="rock"){
-            document.getElementById("result").innerHTML = "Win";
+        if(cumputerchoice=="rock"){
+            score+=1;
         }
-        else if (cumputerVal=="scissors"){
-            document.getElementById("result").innerHTML = "Lose";
+        else if (cumputerchoice=="scissors"){
+            score-=1;
         }
-        else if(cumputerVal=="paper"){
-            document.getElementById("result").innerHTML = "Draw";
+        else if(cumputerchoice=="paper"){
+            ;
         }
+    }
+    document.getElementById("result").innerHTML="积分："+score;
+    if(score>=10){
+        document.getElementById("result").innerHTML="NB,通关了"+score;
     }
 }
 
