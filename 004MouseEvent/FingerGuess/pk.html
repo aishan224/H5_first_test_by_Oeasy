@@ -28,8 +28,14 @@
             transform: scaleX(-1);
         }
         h1{
-            margin-top: 0px;
+            margin-top: 0;
             text-align: center;  <!-- 居中 -->
+        }
+        #container>#result{
+            font-size: 100px;
+            width: 600px;
+            text-align: center;
+
         }
     </style>
 </head>
@@ -51,23 +57,64 @@
             <img src="images/animation.gif"/>
         </div>
     </div>
+    <div id="result"></div>
 </div>
 
 </body>
 <script>
     function rock(){
         document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>"
-        cumputerChoice();
+        var cumputerchoice=cumputerChoice();
+        judge("rock",cumputerchoice);
     }
     function scissors(){
         document.getElementById("myChoice").innerHTML="<img src=\"images/scissors.png\"/>"
-        cumputerChoice();
+        var cumputerchoice=cumputerChoice();
+        judge("scissors",cumputerchoice);
     }
     function paper(){
         document.getElementById("myChoice").innerHTML="<img src=\"images/paper.png\"/>"
-        cumputerChoice();
+        var cumputerchoice=cumputerChoice();
+        judge("paper",cumputerchoice);
     }
 
+    function judge(myVal,cumputerVal) {
+        if(myVal=="rock"){
+            if(cumputerVal=="rock"){
+                document.getElementById("result").innerHTML = "Draw";
+            }
+            else if (cumputerVal=="scissors"){
+                document.getElementById("result").innerHTML = "Win";
+            }
+            else if(cumputerVal=="paper"){
+                document.getElementById("result").innerHTML = "Lose";
+            }
+        }
+
+        else if(myVal=="scissors"){
+            if(cumputerVal=="rock"){
+                document.getElementById("result").innerHTML = "Lose";
+            }
+            else if (cumputerVal=="scissors"){
+                document.getElementById("result").innerHTML = "Draw";
+            }
+            else if(cumputerVal=="paper"){
+                document.getElementById("result").innerHTML = "Win";
+            }
+        }
+
+        else{
+            if(cumputerVal=="rock"){
+                document.getElementById("result").innerHTML = "Win";
+            }
+            else if (cumputerVal=="scissors"){
+                document.getElementById("result").innerHTML = "Lose";
+            }
+            else if(cumputerVal=="paper"){
+                document.getElementById("result").innerHTML = "Draw";
+            }
+        }
+    }
     function go(){
         var r = 3*Math.random();
         return r;
@@ -75,12 +122,15 @@
     function cumputerChoice() {
         if(go()<1){
             document.getElementById("computerChoice").innerHTML="<img src=\"images/rock.png\"/>"
+            return "rock";
         }
         else if (go()<2){
             document.getElementById("computerChoice").innerHTML="<img src=\"images/scissors.png\"/>"
+            return "scissors";
         }
         else{
             document.getElementById("computerChoice").innerHTML="<img src=\"images/paper.png\"/>"
+            return "paper";
         }
     }
 </script>
